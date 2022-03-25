@@ -16,10 +16,7 @@ public class GrapplingRope : MonoBehaviour
     public float waveHeight;
     public AnimationCurve affectCurve; 
 
-    void LateUpdate(){
-        DrawRope();
-    }
-
+    
     void Awake(){
         spring = new Spring();
         spring.SetTarget(0);
@@ -60,4 +57,8 @@ public class GrapplingRope : MonoBehaviour
             lineRenderer.SetPosition(i , Vector3.Lerp(gunTipPosition , currentGrapplePosition , delta) + offset); 
         }
     }
+    void LateUpdate(){
+        DrawRope();
+    }
+
 }

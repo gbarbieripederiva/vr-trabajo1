@@ -29,6 +29,9 @@ public class GrapplingHookScript : MonoBehaviour {
         }else{
             if (Google.XR.Cardboard.Api.IsTriggerPressed || Input.GetMouseButtonDown(0)){
                 StopGrapple();
+            }else{
+                float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                joint.maxDistance = distanceFromPoint * 0.8f;
             }
         }
     }
@@ -48,7 +51,7 @@ public class GrapplingHookScript : MonoBehaviour {
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
     
             joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = distanceFromPoint * 0.01f;
+            joint.minDistance = distanceFromPoint * 0f;
 
             joint.spring = 100f;
             joint.damper = 7f;
